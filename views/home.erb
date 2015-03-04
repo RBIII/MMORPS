@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1> MMORPS </h1>
+
+    <%= "Player Score: #{session[:player_score]}" %>
+    <br>
+    <%= "Computer Score: #{session[:computer_score]}" %>
+    <br>
+    <%= session[:last_round] %>
+
+    <% if session[:player_score] == 2 || session[:computer_score] == 2 %>
+      <form action="/" method="get" id="new game">
+        <h2>Game Over, Play again?</h2>
+        <input type="submit" name="play_again" value="Play Again">
+      </form>
+    <% else %>
+      <form action="/choose" method="post" id="player_choice">
+        <h2>CHOOSE!</h2>
+        <input type="submit" name="choice" value="rock">
+        <input type="submit" name="choice" value="paper">
+        <input type="submit" name="choice" value="scissors">
+      </form>
+    <% end %>
+  </body>
+</html>
